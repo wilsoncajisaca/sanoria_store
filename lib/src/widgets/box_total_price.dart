@@ -65,7 +65,7 @@ class _BoxTotalPriceState extends State<BoxTotalPrice> {
         height: 45,
         child: Center(
           child: Text(
-            "Comprar Ahora",
+            "Continuar",
             style: TextStyle(
               fontSize: 13,
               color: Colors.white,
@@ -74,7 +74,7 @@ class _BoxTotalPriceState extends State<BoxTotalPrice> {
           ),
         ),
       ),
-      onPressed: () {},
+      onPressed: () => Navigator.pushNamed(context, 'payment_page'),
     );
   }
 

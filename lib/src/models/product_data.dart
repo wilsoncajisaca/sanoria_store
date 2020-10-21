@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanoria_store/src/models/category_data.dart';
 
 class ProductData {
   final String imageUrl;
@@ -8,6 +9,7 @@ class ProductData {
   final double priceBefore;
   final double price;
   final bool isFavorite;
+  final int category;
 
   const ProductData({
     this.imageUrl,
@@ -17,7 +19,9 @@ class ProductData {
     this.priceBefore,
     @required this.price,
     @required this.isFavorite,
+    this.category,
   });
+
   ProductData copyWith({
     String imageUrl,
     String name,
@@ -26,6 +30,7 @@ class ProductData {
     double priceBefore,
     double price,
     bool isFavorite,
+    CategoryData category,
   }) {
     return ProductData(
       imageUrl: imageUrl ?? this.imageUrl,
@@ -35,6 +40,7 @@ class ProductData {
       name: name ?? this.name,
       price: price ?? this.price,
       isFavorite: isFavorite ?? this.isFavorite,
+      category: category ?? this.category,
     );
   }
 }
@@ -180,16 +186,7 @@ const productMoreSaleList = [
 
 const productList = [
   ProductData(
-    imageUrl: 'zanahoria.png',
-    weight: '1Lb',
-    name: 'Zanahoria',
-    priceBefore: 2.75,
-    price: 2.50,
-    isFavorite: true,
-    description:
-        "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
-  ),
-  ProductData(
+    category: 1,
     imageUrl: 'col.png',
     weight: '1Lb',
     name: 'Col',
@@ -200,6 +197,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 1,
     imageUrl: 'acelga.png',
     weight: '1Lb',
     name: 'Acelga',
@@ -210,6 +208,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 1,
     imageUrl: 'arveja.png',
     weight: '1Lb',
     name: 'Arveja',
@@ -220,6 +219,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'brocoli.png',
     weight: '1Lb',
     name: 'Brocoli',
@@ -230,6 +230,7 @@ const productList = [
     isFavorite: true,
   ),
   ProductData(
+    category: 3,
     imageUrl: 'cebollin.png',
     weight: '1Lb',
     name: 'Cebollin',
@@ -240,6 +241,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'cebolla_colorada.png',
     weight: '1Lb',
     name: 'Cebolla Colorada',
@@ -250,6 +252,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'cilantro.png',
     weight: '1Lb',
     name: 'Cilantro',
@@ -260,6 +263,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'col_morada.png',
     weight: '1Lb',
     name: 'Col Morada',
@@ -270,6 +274,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'colifrol.png',
     weight: '1Lb',
     name: 'Colifrol',
@@ -280,6 +285,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'espinaca.png',
     weight: '1Lb',
     name: 'Espinaca',
@@ -290,6 +296,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'frejol_maduro.png',
     weight: '1Lb',
     name: 'Frejol Maduro',
@@ -300,6 +307,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'frejol_tierno.png',
     weight: '1Lb',
     name: 'Frejol tierno',
@@ -310,6 +318,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'fresas.png',
     weight: '1Lb',
     name: 'Fresas',
@@ -320,6 +329,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'espinaca_hoja.png',
     weight: '1Lb',
     name: 'Espinaca en Hoja',
@@ -330,6 +340,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'lechugaHoja.png',
     weight: '1Lb',
     name: 'Lechuga Hoja',
@@ -340,6 +351,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'papa.png',
     weight: '1Lb',
     name: 'Papa',
@@ -350,6 +362,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'zanahoria.png',
     weight: '1Lb',
     name: 'Zanahoria',
@@ -360,6 +373,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 3,
     imageUrl: 'perejil.png',
     weight: '1Lb',
     name: 'Perejil',
@@ -370,6 +384,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 1,
     imageUrl: 'tomate_rinion.png',
     weight: '1Lb',
     name: 'Tomate Rinion',
@@ -380,6 +395,7 @@ const productList = [
         "None of that prepared him for the arena, the crowd, the tense hush, the towering puppets of light from a service hatch framed a heap of discarded fiber",
   ),
   ProductData(
+    category: 2,
     imageUrl: 'yuca.png',
     weight: '1Lb',
     name: 'Yuca',

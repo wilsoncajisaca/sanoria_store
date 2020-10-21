@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:sanoria_store/src/commons/routes.dart';
+import 'package:sanoria_store/src/pages/principal_pages/payment.dart';
 import 'package:sanoria_store/src/pages/principal_pages/splash_page.dart';
 import 'package:sanoria_store/src/services/product_services.dart';
 

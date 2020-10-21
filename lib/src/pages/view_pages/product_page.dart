@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sanoria_store/src/models/category_data.dart';
+import 'package:sanoria_store/src/models/product_data.dart';
 import 'package:sanoria_store/src/widgets/category_card.dart';
 import 'package:sanoria_store/src/widgets/list_products.dart';
 
@@ -21,7 +22,9 @@ class ProductPage extends StatelessWidget {
           _Categories(),
           Expanded(
             child: '1' == '1'
-                ? ListProducts()
+                ? ListProducts(
+                    productListParam: productList,
+                  )
                 : Container(
                     child: Center(
                       child: Text('No se encontraron productos'),

@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
               ),
             ),
             Text(
-              "Bienvenido a Sanoria",
+              "Bienvenido a Planeta Huerto",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w600,

@@ -24,10 +24,10 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    String titleFromPage = 'Sanoria Store';
+    String titleFromPage = 'Store';
     setState(() {
       if (_currentIndex == 0) {
-        titleFromPage = 'Sanoria Store';
+        titleFromPage = 'Store';
       } else if (_currentIndex == 1) {
         titleFromPage = 'Productos';
       } else if (_currentIndex == 2) {

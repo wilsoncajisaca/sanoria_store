@@ -56,7 +56,7 @@ class _ProductDetailState extends State<ProductDetail> {
             child: IconButton(
               icon: Icon(
                 this.isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: principalColor,
+                color: Colors.red,
               ),
               onPressed: () => _changeFavorite(this.isFavorite),
             ),

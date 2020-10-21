@@ -2,12 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:sanoria_store/src/commons/colors.dart';
+import 'package:sanoria_store/src/models/product_data.dart';
+import 'package:sanoria_store/src/widgets/list_products.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
+  @override
+  _SearchPageState createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  TextEditingController txtSearchController = new TextEditingController();
+  List<ProductData> _productList;
+  List<ProductData> _searchResult = [];
+  @override
+  void initState() {
+    super.initState();
+    _productList = productList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: blackCustom,
+      backgroundColor: Color(0xfff0f0f0),
       body: SafeArea(
         child: Column(
           children: [
@@ -18,7 +34,7 @@ class SearchPage extends StatelessWidget {
               child: Row(
                 children: [
                   BackButton(
-                    color: Colors.white,
+                    color: blackCustom,
                   ),
                   Expanded(
                     child: Container(
@@ -39,10 +55,12 @@ class SearchPage extends StatelessWidget {
                           SizedBox(width: 10),
                           Expanded(
                             child: TextField(
+                              controller: txtSearchController,
                               decoration: InputDecoration(
                                 hintText: 'Buscar Producto',
                                 border: InputBorder.none,
                               ),
+                              onChanged: onSearchTextChanged,
                             ),
                           ),
                         ],
@@ -53,22 +71,45 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Container(
-                margin: EdgeInsets.only(top: 25),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                  ),
-                  color: Colors.white,
-                ),
-                padding: EdgeInsets.all(50),
-                child: SvgPicture.asset(
-                  'assets/svg/search.svg',
-                ),
-              ),
+              child: _searchResult.length != 0 ||
+                      txtSearchController.text.isNotEmpty
+                  ? _listProduct(this._searchResult)
+                  : _listProduct(this._productList),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  onSearchTextChanged(String text) async {
+    this._searchResult.clear();
+    if (text.trim().isEmpty) {
+      setState(() {});
+      return;
+    }
+
+    this._productList.forEach((product) {
+      if (product.name.toLowerCase().contains(text.toLowerCase()))
+        this._searchResult.add(product);
+    });
+
+    setState(() {});
+  }
+
+  _listProduct(List<ProductData> productlist) {
+    return Container(
+      margin: EdgeInsets.only(top: 18),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40),
+          topRight: Radius.circular(40),
+        ),
+        color: Colors.white,
+      ),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+      child: ListProducts(
+        productListParam: productlist,
       ),
     );
   }

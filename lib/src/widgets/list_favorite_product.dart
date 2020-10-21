@@ -3,8 +3,6 @@ import 'package:sanoria_store/src/models/product_data.dart';
 import 'package:sanoria_store/src/widgets/product_card.dart';
 
 class ListFavoriteProduct extends StatelessWidget {
-  const ListFavoriteProduct({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
